@@ -1,18 +1,18 @@
-
+import { useContext } from "react";
+import GlobalContext from "../context/GlobalContext"
 // importo il post card
-import PostCard from "../pages/PostCard";
-
+import PostCard from "./PostCard";
 
 export default function PostList() {
 
-
+    const { posts } = useContext(GlobalContext);
 
     return (
 
         <>
 
             {posts.map((post) => (
-                <PostCard key={post.id} />
+                <PostCard key={post.id} post={post} />
 
             ))}
         </>

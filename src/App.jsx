@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react';
 import axios from "axios";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-// importo i componenti
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 
 
 // importo le pages
-import PostPage from "./components/PostPage.jsx";
+import PostPage from "./pages/PostPage.jsx";
+
+// importo il global context
+import GlobalContext from "./context/GlobalContext.jsx";
 
 
 // importo il LAYOUT
 import DefaultLayout from "./layout/DefaultLayout.jsx";
+
+
+
 
 
 function App() {
@@ -34,16 +39,20 @@ function App() {
   return (
 
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayout />} >
-            <Route path="/" element={<PostPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <GlobalContext.Provider value={{ posts }}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />} >
+              <Route path="/" element={<PostPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GlobalContext.Provider>
     </>
 
   )
 }
 
 export default App
+
+

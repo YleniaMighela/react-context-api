@@ -1,8 +1,10 @@
-// importo la lista dei post
+// // importo la lista dei post
 
-import PostsList from "./PostsList";
+import PostsList from "../components/PostsList";
 
 export default function PostPage() {
+
+
     return (
         <>
             <h2> Menù dei dolci </h2>
@@ -11,3 +13,4 @@ export default function PostPage() {
 
     );
 }
+
